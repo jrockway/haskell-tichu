@@ -19,13 +19,13 @@ isLegalPlay _ (Single Mahjong) = False
 isLegalPlay _ (Single Dog) = False
 
 -- Excepting bombs, nothing beats the Dragon
-isLegalPlay (Single Dragon) _ = False
+isLegalPlay (Single Dragon) (Single _) = False
 
 -- The Phoenix beats everything
-isLegalPlay _ (Single Phoenix) = True
+isLegalPlay (Single _) (Single Phoenix) = True
 
 -- But the Phoenix is beaten by everything
-isLegalPlay (Single Phoenix) _ = True
+isLegalPlay (Single Phoenix) (Single _) = True
 
 -- Singles increase in rank
 isLegalPlay x@(Single _) y@(Single _) = rank x < rank y

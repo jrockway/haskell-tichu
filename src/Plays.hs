@@ -2,6 +2,7 @@ module Plays (
   -- | Sets of cards that can be played.  Do not construct Plays manually; use
   -- allPlays and filter.
   Play(..),
+  Plays(..),
   allPlays,
 
   -- | Utility functions for interacting with Plays
