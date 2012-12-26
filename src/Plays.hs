@@ -47,7 +47,7 @@ unwrapPlay (Wish x _) = unwrapPlay x
 -- | Plays have ranks; the rank is the lowest card of a straight or cons pair,
 -- the value of a single, pair, triple, or four-card bomb,
 instance Ranked Play where
-  rank (Single Phoenix) = 1 -- TODO(jrockway): Fix after issues/1 is resolved.
+  rank (Single Phoenix) = 1 -- TODO(jrockway): Fix after #1 is resolved.
   rank (Single x) = rank x
   rank (Multiple xs) = rank . arbitraryStandardCard $ xs
   rank (Straight xs) = if Set.member Phoenix xs && min + len - 1 > 14 then

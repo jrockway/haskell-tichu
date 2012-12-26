@@ -37,7 +37,7 @@ instance Show Suit where
 
 allSuits = enumFrom Jade
 
--- TODO(jrockway): Support fractional ranks (issues/1).
+-- TODO(jrockway): Support fractional ranks (#1).
 
 -- | Represents the rank of a card.  Implements Num so you can use Integer
 -- literals where a Rank is required.
