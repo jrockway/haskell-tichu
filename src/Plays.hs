@@ -1,5 +1,11 @@
 module Plays (
-  -- Play(..)
+  -- | Sets of cards that can be played (note that data constructors are private)
+  Play,
+  allPlays,
+
+  -- | Utility functions for interacting with Plays
+  playLength,
+  unwrapPlay,
   ) where
 
 import Cards
@@ -10,8 +16,6 @@ import Data.List as List
 import Data.Monoid
 import Data.Set (Set)
 import qualified Data.Set as Set
-
-import Debug.Trace
 
 -- Note that the utility functions below assume these are legitimate plays that
 -- are internally consistent.  The results are undefined if you create these
@@ -31,6 +35,7 @@ data Play =
   | Wish Play Rank -- ^ Make a play that includes a wish
   deriving (Ord, Eq)
 
+-- | Extract the set of cards a play uses.
 unwrapPlay :: Play -> Cards
 unwrapPlay (Single x) = Set.singleton x
 unwrapPlay (Multiple xs) = xs
