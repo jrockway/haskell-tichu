@@ -1,6 +1,7 @@
 module Plays (
-  -- | Sets of cards that can be played (note that data constructors are private)
-  Play,
+  -- | Sets of cards that can be played.  Do not construct Plays manually; use
+  -- allPlays and filter.
+  Play(..),
   allPlays,
 
   -- | Utility functions for interacting with Plays
