@@ -27,8 +27,7 @@ type Plays = Set Play
 
 -- | Represents a Tichu play.  (Not to be confused with Google Play.)
 data Play =
-  Pass -- ^ Play no cards
-  | Single Card -- ^ Play a single card
+  Single Card -- ^ Play a single card
   | Multiple Cards -- ^ Play 2, 3, or 4 cards
   | Straight Cards -- ^ Play a 5-14 card straight
   | FullHouse Cards Cards -- ^ Play a full house (high three, low two)
@@ -69,7 +68,6 @@ playLength (ConsPairs xs) = 2 * length xs
 _showCards = List.intercalate " " . (show <$>) . Set.toAscList
 
 instance Show Play where
-  show Pass = "<Pass>"
   show (Single x) = "<" ++ show x ++ ">"
   show p@(Multiple x) = "<" ++ bomb ++ content ++ ">"
     where bomb = if isBomb p then "!" else ""
