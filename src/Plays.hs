@@ -7,6 +7,7 @@ module Plays (
   -- | Utility functions for interacting with Plays
   playLength,
   unwrapPlay,
+  isBomb,
   ) where
 
 import Cards
@@ -63,7 +64,7 @@ playLength (Single _) = 1
 playLength (Multiple xs) = Set.size xs
 playLength (Straight xs) = Set.size xs
 playLength (FullHouse _ _) = 5
-playLength (ConsPairs xs) = 2 * length xs
+playLength (ConsPairs xs) = length xs
 
 _showCards = List.intercalate " " . (show <$>) . Set.toAscList
 
